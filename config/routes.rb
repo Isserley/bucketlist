@@ -1,6 +1,22 @@
 Rails.application.routes.draw do
 
 
+  get 'entries/index'
+
+  get 'entries/new'
+
+  get 'entries/edit'
+
+  get 'entries/show'
+
+  get 'goals/index'
+
+  get 'goals/new'
+
+  get 'goals/edit'
+
+  get 'goals/show'
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
