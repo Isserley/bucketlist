@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :goal do
     goal_title 'Climb Mount Everest'
-    priority 5
-    admin false
+    # admin false
 	end
  end

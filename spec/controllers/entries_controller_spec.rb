@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
 
+let(:entry){FactoryGirl.create(entry_title: 'Sample Entry')}
+
   describe "GET #index" do
     it "returns http success" do
       get :index

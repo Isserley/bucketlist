@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only: [:edit, :show, :update, :destroy]
+  before_action :find_goal, only:[:edit, :show, :update, :destroy]
   def index
     @goals = Goal.all
   end
