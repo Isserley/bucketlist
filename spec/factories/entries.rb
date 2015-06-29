@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :journal_entry do
+  factory :entry do
     	entry_title 'Sample Entry'
       goal
 			# admin false

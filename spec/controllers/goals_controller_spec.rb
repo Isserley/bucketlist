@@ -2,15 +2,11 @@ require 'rails_helper'
 
 RSpec.describe GoalsController, type: :controller do
 
-  before(:each) do
-    @goal = FactoryGirl.create(:goal)
-  end
-
-  let(:entry){FactoryGirl.create(:entry, goal: @goal)}
+let(:goal){FactoryGirl.create(:goal)}
 
   describe "GET #index" do
     it "returns http success" do
-      get :index, goal_id: @goal.id
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
