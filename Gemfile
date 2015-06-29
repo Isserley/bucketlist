@@ -29,9 +29,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Fer styling
+gem 'bootstrap-sass', '~> 3.3.5'
+# Gives a lot of helpful devise navigation and layouts for signup/sign in
+gem 'rails_layout'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 # paperclip for adding pictures to site
 gem "paperclip", "~> 4.2"
 # devise for user signin and authentication
