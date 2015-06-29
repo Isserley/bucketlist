@@ -6,4 +6,5 @@
   <%= goal.priority %>
   <a href="<%= edit_goal_path(goal.id) %>">Edit Goal</a>
   <a href="<%= goal_path(goal.id) %>" data-method="delete">Delete Goal</a>
+  <a href="<%= new_goal_entry_path(goal.id) %>">Add Entry</a>
 <% end %>
