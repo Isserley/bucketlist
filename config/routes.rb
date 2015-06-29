@@ -1,21 +1,8 @@
 Rails.application.routes.draw do
 
-
-  get 'entries/index'
-
-  get 'entries/new'
-
-  get 'entries/edit'
-
-  get 'entries/show'
-
-  get 'goals/index'
-
-  get 'goals/new'
-
-  get 'goals/edit'
-
-  get 'goals/show'
+  resources :goals do
+    resources :entries
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
