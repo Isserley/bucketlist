@@ -1,2 +1,10 @@
-<h1>Goals#new</h1>
-<p>Find me in app/views/goals/new.html.erb</p>
+<%= form_for @goal do |f| %>
+  <%= f.label(:goal_title) %>
+  <%= f.text_field(:goal_title) %>
+  <%= f.label(:goal_img) %>
+  <%= f.file_field :goal_img %>
+  <%= f.label(:priority) %>
+  <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
+  <%= f.submit('Add Goal') %>
+<% end %>
+<p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p>

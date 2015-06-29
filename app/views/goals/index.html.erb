@@ -1,2 +1,10 @@
-<h1>Goals#index</h1>
-<p>Find me in app/views/goals/index.html.erb</p>
+<a href="<%= new_goal_path %>">New Goal</a>
+<% @goals.each do |goal| %>
+  <%= goal.goal_title %>
+  <%= image_tag goal.goal_img.url(:medium) %>
+  <%= goal.completed %>
+  <%= goal.priority %>
+  <a href="<%= edit_goal_path(goal.id) %>">Edit Goal</a>
+  <a href="<%= goal_path(goal.id) %>" data-method="delete">Delete Goal</a>
+  <a href="<%= new_goal_entry_path(goal.id) %>">Add Entry</a>
+<% end %>
