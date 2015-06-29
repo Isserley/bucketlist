@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150629185923) do
     t.integer  "priority",              default: 0
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
