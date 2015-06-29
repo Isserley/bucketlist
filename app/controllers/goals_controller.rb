@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :show, :update, :destroy]
   def index
-    @goals = Goal.all
+    @goals = Goal.where(user_id: current_user.id)
   end
 
   def new
@@ -10,6 +10,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    @goal.user_id = current_user.id
     if @goal.save
       redirect_to root_path
     else
