@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dfaah0nko
+  api_key: '765868249622586'
+  api_secret: N8yXxkegfli147AYgxEC-0FtVCQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dfaah0nko
+  api_key: '765868249622586'
+  api_secret: N8yXxkegfli147AYgxEC-0FtVCQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dfaah0nko
+  api_key: '765868249622586'
+  api_secret: N8yXxkegfli147AYgxEC-0FtVCQ
+  enhance_image_tag: true
+  static_image_support: false

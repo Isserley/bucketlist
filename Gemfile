@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "paperclip", "~> 4.2"
 # devise for user signin and authentication
 gem 'devise'
+# cloudinary for using cloud image services
+gem 'cloudinary'
 
 group :test do
 	# tells test coverage percetage
@@ -62,4 +64,3 @@ group :development, :test do
  #rspec gem for testing
 	gem 'rspec-rails', '~> 3.0'
 end
-
