@@ -1,10 +1,33 @@
-<%= form_for @goal do |f| %>
+<!-- <%= form_for @goal do |f| %>
   <%= f.label(:goal_title) %>
-  <%= f.text_field(:goal_title) %>
+  <div class="container">
+    <input type="text" action="goal_title" class="form-control" placeholder="Write a descriptive title for your bucket new bucket list item">
+  </div>
   <%= f.label(:goal_img) %>
   <%= f.file_field :goal_img %>
   <%= f.label(:priority) %>
   <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
   <%= f.submit('Add Goal') %>
-<% end %>
-<p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p>
+<% end %> -->
+
+<form>
+  <div class="form-group">
+    <label for="goal_title">Your Goal</label>
+    <input type="text" class="form-control" id="goal_title" placeholder="Describe your bucket list item!">
+  </div>
+    <label for="priority">Priority?</label>
+  <select class="form-control" action="priority">
+    <option>Sure, if there's time</option>
+    <option>Would like to</option>
+    <option>Must</option>
+    <option>Imperative</option>
+    <option>Cannot die without doing</option>
+  </select>
+  <div class="form-group">
+    <label for="goal_img">Image</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+<!-- <p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p> -->
