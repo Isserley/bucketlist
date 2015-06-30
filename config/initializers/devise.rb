@@ -2,6 +2,8 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
+  config.secret_key = '0f9ceb745f8b9cea4cbc075512287dd47383298beedc916bcf4ede4546f1dc84766f8e2c966b5917431b7c9017f7f215387d0c631eca323a49708985396a2881'
+
   config.authentication_keys = [ :login ]
 
   config.scoped_views = true
