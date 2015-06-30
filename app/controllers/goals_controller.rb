@@ -1,7 +1,23 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :show, :update, :destroy]
   def index
-    @goals = Goal.where(user_id: current_user.id)
+  @goals = Goal.where(user_id: current_user.id)
+  config = {
+  consumer_key:    ENV['twitter_key'],
+  consumer_secret: ENV['twitter_secret'],
+  acces_token: ENV['twitter_api_token'],
+  access_token_secret: ENV['twitter_api_token_secret']
+  }
+  client = Twitter::REST::Client.new(config)
+  user = client.user('project-bucketlist')
+  binding.pry
+  client.update('new tweet')
+
+  # return the users timezone from their settings
+  user.time_zone
+
+  # return the users name
+  user.name
   end
 
   def new
