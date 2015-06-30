@@ -31,4 +31,24 @@ let(:goal){FactoryGirl.create(:goal)}
       expect(response).to have_http_status(:success)
     end
   end
+  describe "PUT #update" do
+    it "returns http success" do
+      put :update, id: goal.id
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+
+  # describe "POST #create" do
+  #   it "returns http success" do
+  #     post :create
+  #     expect(response).to have_http_status(:redirect)
+  #   end
+  # end
+
+#    describe "DELETE #destroy" do
+#     it "returns http success" do
+#       delete :destroy, id: entry.id
+#       expect(response).to have_http_status(:redirect)
+#     end
+#   end
 end

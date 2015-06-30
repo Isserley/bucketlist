@@ -1,6 +1,18 @@
+<body>
+
+<link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+
+<h1 id="main_title">Bucket List</h1>
+
+
 <% @goals.each do |goal| %>
-  <%= goal.goal_title %>
+	<div class="goal">
   <%= image_tag goal.goal_img.url(:medium) %>
+  <%= goal.goal_title %> -
+	<%= goal.priority %>
   <%= goal.completed %>
-  <%= goal.priority %>
+	</div>
 <% end %>
+
+
+</body>
