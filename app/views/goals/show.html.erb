@@ -1,2 +1,4 @@
-<h1>Goals#show</h1>
-<p>Find me in app/views/goals/show.html.erb</p>
+<h1><%= @goal.goal_title %></h1>
+<h3><%= @goal.priority %><h3>
+  <%= image_tag @goal.goal_img.url(:medium) %>
+  <%= @goal.completed %>
