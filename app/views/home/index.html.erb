@@ -1,9 +1,13 @@
-<body background="balloon">
+<body>
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+<header id="welcome_image">
+<h1 id="main_title" class="font_rock">Bucket List</h1>
+<h3 class="font_rock">Live your dreams</h3>
+</header>
+<p id="twain">Twenty years from now you will be more disappointed by the things you did not do than by the things you did do. So throw off the bowlines. Sail away from safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover. - Mark Twain</p>
 
-<h1 id="main_title">Bucket List</h1>
-
+<p id="intro">Create your own dream list and track your progress here on Bucket List. Click on <%= link_to 'new goal', new_goal_path %> to get started!</p>
 
 <% @goals.each do |goal| %>
 	<div class="goal">
