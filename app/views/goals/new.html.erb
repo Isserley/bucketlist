@@ -1,12 +1,24 @@
+<div class="container">
+  <%= form_for @goal do |f| %>
+      <div class="form-group">
+        <%= f.label :goal_title %><br />
+        <%= f.text_field :goal_title, autofocus: true, class: "form-control"  %>
+      </div>
 
+      <div class="form-group">
+        <%= f.label :priority %><br />
+        <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
+      </div>
 
-<%= form_for @goal do |f| %>
-  <%= f.label(:goal_title) %>
-  <%= f.text_field(:goal_title) %>
-  <%= f.label(:goal_img) %>
-  <%= f.file_field :goal_img %>
-  <%= f.label(:priority) %>
-  <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
-  <%= f.submit('Add Goal') %>
-<% end %>
-<p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p>
+      <div class="form-group">
+        <%= f.label(:goal_img) %>
+        <%= f.file_field :goal_img %>
+        <p class="help-block">Upload an image here to represent your goal</p>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Submit', :class => 'button left' %>
+      </div>
+ <% end %>
+</div>
+<!-- <p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p> -->
