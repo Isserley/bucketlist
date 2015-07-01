@@ -1,20 +1,18 @@
 <a href="<%= new_goal_path %>">New Goal</a>
-<% @goals.each do |goal| %>
+<% @goals.each_with_index do |goal, i| %>
   <a href="<%= edit_goal_path(goal.id) %>"><span class="glyphicon glyphicon-pencil"></span></a>
   <a href="<%= goal_path(goal.id) %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
-      <a role="button" data-toggle="collapse" href=".collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
         <%= goal.goal_title %>
         <%= goal.priority %>
         <%= image_tag goal.goal_img.url(:medium) %>
         <%= goal.completed %>
       </a>
-        <% goal.entries.each do |entry| %>
-      <div class="collapse collapseExample">
-        <div class="well">
+      <div class="collapse" id="collapse<%= i %>">
+      <% goal.entries.each do |entry| %>
           <%= entry.entry_title %>
           <%= entry.entry_date %>
-        </div>
-      </div>
   <% end %>
+      </div>
   <a href="<%= new_goal_entry_path(goal.id) %>">Add Entry</a>
 <% end %>
