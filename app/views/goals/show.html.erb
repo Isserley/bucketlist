@@ -1,7 +1,12 @@
+<body>
+
+<link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+
 <h1><%= @goal.goal_title %></h1>
 <h3><%= @goal.priority %><h3>
   <%= image_tag @goal.goal_img.url(:medium) %>
   <%= @goal.completed %>
+
 <% if @goal.user_id == current_user.id %>
   <a href="<%= edit_goal_path(@goal.id) %>"><span class="glyphicon glyphicon-pencil"></span></a>
   <a href="<%= goal_path(@goal.id) %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
@@ -9,3 +14,5 @@
   <a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a>
   <a href="/addtobucket/<%= @goal.id %>"><span class="glyphicon glyphicon-pushpin"></span></a>
 <% end %>
+
+</body>

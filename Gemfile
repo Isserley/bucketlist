@@ -47,6 +47,8 @@ gem "paperclip", "~> 4.2"
 gem 'devise'
 # cloudinary for using cloud image services
 gem 'cloudinary'
+# generates a bunch of data
+gem 'faker', '~> 1.4.3'
 
 group :test do
 	# tells test coverage percetage
