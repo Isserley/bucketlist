@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only:[:edit, :show, :update, :destroy]
+  before_action :find_goal, only:[:edit, :show, :update, :destroy, :like]
 
   def index
     @goals = Goal.where(user_id: current_user.id)
@@ -62,6 +62,12 @@ class GoalsController < ApplicationController
     @entries = Entry.where(goal_id: @goal.id)
   end
 
+  def like
+    @goal.likes += 1
+    @goal.save
+    render(json: @goal)
+  end
+
   def destroy
     @goal.destroy
     redirect_to root_path
@@ -72,6 +78,6 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by(id: params[:id])
   end
   def goal_params
-    params.require(:goal).permit(:goal_title, :goal_img, :completed, :priority)
+    params.require(:goal).permit(:goal_title, :goal_img, :completed, :priority, :likes)
   end
 end
