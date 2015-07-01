@@ -41,7 +41,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.user_id = current_user.id
     if @goal.save
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :new
     end
@@ -52,7 +52,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :edit
     end
@@ -70,7 +70,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to root_path
+    redirect_to goals_path
   end
 
   private

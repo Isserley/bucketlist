@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
   def create
     @entry = @goal.entries.build(entry_params)
     if @entry.save
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
 
   def update
     if @entry.update(entry_params)
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry.destroy
-    redirect_to root_path
+    redirect_to goal_path(@goal.id)
   end
 
   private
