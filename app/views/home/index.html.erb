@@ -15,8 +15,8 @@
 	<% @goals.each do |goal| %>
 		<div class="goal">
 	  <%= image_tag goal.goal_img.url(:medium) %>
-	  <%= goal.goal_title %> -
-		<%= goal.priority %>
+	  <%= goal.goal_title %><br>
+<!-- 		<%= goal.priority %> -->
 	  <%= goal.completed %>
 		</div>
 	<% end %>
