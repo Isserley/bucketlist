@@ -35,7 +35,10 @@ gem 'twitter', '~> 5.14.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Gives a lot of helpful devise navigation and layouts for signup/sign in
 gem 'rails_layout'
-
+# replaces erb syntax to make code more readable
+gem 'haml', '~> 4.0.6'
+# installs pagination
+gem 'will_paginate', '~> 3.0.6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # paperclip for adding pictures to site
@@ -44,6 +47,8 @@ gem "paperclip", "~> 4.2"
 gem 'devise'
 # cloudinary for using cloud image services
 gem 'cloudinary'
+# generates a bunch of data
+gem 'faker', '~> 1.4.3'
 
 group :test do
 	# tells test coverage percetage
