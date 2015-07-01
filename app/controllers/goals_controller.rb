@@ -20,7 +20,16 @@ class GoalsController < ApplicationController
     # return the user's name
     user.name
     # creates pagination for our goals
-    
+
+  end
+
+  def addtobucket
+    goal = Goal.find(params[:id])
+    my_goal = Goal.create!(goal.attributes.except('id', 'user_id', 'created_at', 'updated_at'))
+    my_goal.goal_img = goal.goal_img
+    current_user.goals << my_goal
+    flash[:success] = "#{goal.goal_title} was added to your goals!"
+    redirect_to(:back)
   end
 
   def new

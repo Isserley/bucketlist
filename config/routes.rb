@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/addtobucket/:id" => "goals#addtobucket"
+
   resources :goals do
     resources :entries
   end
