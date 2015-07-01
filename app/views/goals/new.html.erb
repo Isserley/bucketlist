@@ -1,33 +1,24 @@
-<!-- <%= form_for @goal do |f| %>
-  <%= f.label(:goal_title) %>
-  <div class="container">
-    <input type="text" action="goal_title" class="form-control" placeholder="Write a descriptive title for your bucket new bucket list item">
-  </div>
-  <%= f.label(:goal_img) %>
-  <%= f.file_field :goal_img %>
-  <%= f.label(:priority) %>
-  <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
-  <%= f.submit('Add Goal') %>
-<% end %> -->
+<div class="container">
+  <%= form_for @goal do |f| %>
+      <div class="form-group">
+        <%= f.label :goal_title %><br />
+        <%= f.text_field :goal_title, autofocus: true, class: "form-control"  %>
+      </div>
 
-<form>
-  <div class="form-group">
-    <label for="goal_title">Your Goal</label>
-    <input type="text" class="form-control" id="goal_title" placeholder="Describe your bucket list item!">
-  </div>
-    <label for="priority">Priority?</label>
-  <select class="form-control" action="priority">
-    <option>Sure, if there's time</option>
-    <option>Would like to</option>
-    <option>Must</option>
-    <option>Imperative</option>
-    <option>Cannot die without doing</option>
-  </select>
-  <div class="form-group">
-    <label for="goal_img">Image</label>
-    <input type="file" id="exampleInputFile">
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+      <div class="form-group">
+        <%= f.label :priority %><br />
+        <%= f.select(:priority, options_for_select(['if_there_is_time','would_like_to','must','imperative','cannot_die_without']), {}, {}) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label(:goal_img) %>
+        <%= f.file_field :goal_img %>
+        <p class="help-block">Upload an image here to represent your goal</p>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Signup', :class => 'button left' %>
+      </div>
+ <% end %>
+</div>
 <!-- <p><a href="<%= goals_path %>" class="btn btn-primary" role="button">Back</a></p> -->
