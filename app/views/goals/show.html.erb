@@ -2,10 +2,14 @@
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
 
-<h1><%= @goal.goal_title %></h1>
-<h3><%= @goal.priority %><h3>
-  <%= image_tag @goal.goal_img.url(:medium) %>
-  <%= @goal.completed %>
+    <%= image_tag @goal.goal_img.url(:medium) %>
+    <%= @goal.goal_title %><br>
+    <%= @goal.priority %>
+    <%= @goal.completed %>
+
+<!-- twitter button -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="dplbucketlist">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 <% if @goal.user_id == current_user.id %>
   <a href="<%= edit_goal_path(@goal.id) %>"><span class="glyphicon glyphicon-pencil"></span></a>

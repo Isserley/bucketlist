@@ -11,7 +11,8 @@ class GoalsController < ApplicationController
     }
     client = Twitter::REST::Client.new(config)
     user = client.user("dplbucketlist")
-    client.update('another tweet')
+
+    client.update('more tweet')
     # binding.pry
 
     # return the user's timezone from their settings

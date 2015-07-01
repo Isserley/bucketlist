@@ -10,23 +10,29 @@
 
 <p id="dean">"Dream as if you'll live forever. Live as if you'll die today." <br> James Dean</p>
 
-<p id="intro">They say the things you regret most in life are the things you
-	didn't do. Live without regrets; create your own bucket list today!
-	 On Death Wish, you can track progress toward your goal, upload images that inspire you, and get ideas from other wish lists.
-	Click <%= link_to 'new goal', new_goal_path %> to get started.</p>
 
+<p id="intro">They say the things you regret most in life are the things you didn't do. Live without regrets; create your own bucket list today! On Death Wish, you can track progress toward your goal, upload images that inspire you, and get ideas from other wish lists.<p>
+
+<p id="intro">Click <%= link_to 'new goal', new_goal_path %> to get started, or have some fun browsing other people's goals below...</p> 
+
+
+<!-- <h1 id="dean">Goals</h1> -->
+
+<hr>
+
+<h1 id="dean">Goals</h1>
 
 <% @goals.each do |goal| %>
 	<div class="goal">
 		<a href="<%= goal_path(goal.id) %>">
 	  <%= image_tag goal.goal_img.url(:medium) %>
 		</a>
-	  <!-- <%= goal.goal_title %> -
-		<%= goal.priority %>
-	  <%= goal.completed %> -->
+    <%= goal.goal_title %>
+<!-- 		<%= goal.priority %> -->
+<!-- 	  <%= goal.completed %> -->
 	</div>
 <% end %>
 
-<%= will_paginate @goals %>
+<%= will_paginate(@goals) %>
 
 </body>
