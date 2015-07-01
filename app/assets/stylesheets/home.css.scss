@@ -1,16 +1,48 @@
 body {
-padding: 30px;
+background-color: silver;
 }
 
-#main_title {
-font-size: 100px;
-padding: 10px 10px 50px 0;
+#death_wish {
+color: silver;
+font-size: 150px;
+margin-left: 20px;
+padding: 30px 30px 30px 0;
 font-family: 'Rock Salt', cursive;
+}
+
+#live {
+color: grey;
+font-size: 30px;
+margin-left: 30px;
+}
+
+#dean {
+font-family: 'Rock Salt', cursive;
+margin-top: 40px;
+font-size: 35px;
+text-align: center;
+}
+
+#intro {
+margin-top: 80px;
+font-size: 20px;
+text-align: center;
+}
+
+#welcome {
+font-family: 'Rock Salt', cursive;
+text-align: center;
+}
+
+#welcome_image {
+height: 800px;
+background-image: image-url('reaper.jpg');
+repeat: no-repeat;
+background-size: 100%;
 }
 
 .goal {
 font-size: 20px;
-font-family: 'Archivo Narrow', sans-serif;
 display: inline-block;
-padding: 3%;
+padding: 4%;
 }

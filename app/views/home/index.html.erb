@@ -2,17 +2,24 @@
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
 
-<h1 id="main_title">Bucket List</h1>
+<header id="welcome_image">
 
+<h1 id="death_wish">Death Wish</h1>
+<h3 id="live">Live while you can!</h3>
+</header>
 
-<% @goals.each do |goal| %>
-	<div class="goal">
-  <%= image_tag goal.goal_img.url(:medium) %>
-  <%= goal.goal_title %> -
-	<%= goal.priority %>
-  <%= goal.completed %>
-	</div>
-<% end %>
+<p id="dean">"Dream as if you'll live forever. Live as if you'll die today." <br> James Dean</p>
+
+<p id="intro">They say the things you regret most in life are the things you didn't do. Live without regrets; create your own bucket list today! On Death Wish, you can track progress toward your goal, upload images that inspire you, and get ideas from other wish lists. Click <%= link_to 'new goal', new_goal_path %> to get started.</p> 
+
+	<% @goals.each do |goal| %>
+		<div class="goal">
+	  <%= image_tag goal.goal_img.url(:medium) %>
+	  <%= goal.goal_title %> -
+		<%= goal.priority %>
+	  <%= goal.completed %>
+		</div>
+	<% end %>
 
 
 </body>
