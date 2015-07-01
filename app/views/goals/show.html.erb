@@ -1,4 +1,10 @@
+<body>
+
+<link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+
 <h1><%= @goal.goal_title %></h1>
 <h3><%= @goal.priority %><h3>
   <%= image_tag @goal.goal_img.url(:medium) %>
   <%= @goal.completed %>
+
+</body>
