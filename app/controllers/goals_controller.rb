@@ -30,6 +30,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @entries = Entry.where(goal_id: @goal.id)
   end
 
   def destroy
