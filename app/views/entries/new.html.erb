@@ -1,12 +1,14 @@
-<%= form_for @entry, url: goal_entries_path(@goal) do |f| %>
-  <%= f.label(:entry_title) %>
-  <%= f.text_field(:entry_title) %>
-  <%= f.label(:entry_img) %>
-  <%= f.file_field :entry_img %>
-  <%= f.label(:entry_desc) %>
-  <%= f.text_area(:entry_desc) %>
-  <%= f.label(:entry_date) %>
-  <%= f.datetime_select :entry_date %>
-  <%= f.submit('Add Entry') %>
-<% end %>
+<div class="authform">
+  <%= form_for @entry, url: goal_entries_path(@goal) do |f| %>
+    <%= f.label(:entry_title) %>
+    <%= f.text_field(:entry_title) %>
+    <%= f.label(:entry_img) %>
+    <%= f.file_field :entry_img %>
+    <%= f.label(:entry_desc) %>
+    <%= f.text_area(:entry_desc) %>
+    <%= f.label(:entry_date) %>
+    <%= f.datetime_select :entry_date %>
+    <%= f.submit('Add Entry') %>
+  <% end %>
+</div>
 <p><a href="<%= goal_path(@goal) %>" class="btn btn-primary" role="button">Back</a></p>
