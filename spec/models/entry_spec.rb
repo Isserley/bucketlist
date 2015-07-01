@@ -13,4 +13,5 @@ RSpec.describe Entry, type: :model do
       entry = FactoryGirl.build(:entry, entry_title: nil)
       expect(entry).to_not be_valid
     end
+  end
 end
