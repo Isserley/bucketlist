@@ -22,7 +22,14 @@
 </div>
 <!-- edit and delete buttons -->
 <div class="container">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-4">
+<!-- new goal entry and edit goal entry -->
+  <a href="<%= new_goal_entry_path(goal.id) %>">
+    <button class="btn btn-warning" type="button" name="button">Add Entry</button>
+  </a>
+  <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-primary" type="button" name="button">Show Entries</button>
+  </a>
     <a href="<%= edit_goal_path(goal.id) %>">
       <button class="btn btn-primary" type="button" name="button">
         <span class="glyphicon glyphicon-pencil"></span>
@@ -33,13 +40,7 @@
          <span class="glyphicon glyphicon-trash"></span>
       </button>
     </a>
-<!-- new goal entry and edit goal entry -->
-  <a href="<%= new_goal_entry_path(goal.id) %>">
-    <button class="btn btn-warning" type="button" name="button">Add Entry</button>
-  </a>
-  <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
-    <button class="btn btn-primary" type="button" name="button">Show Entries</button>
-  </a>
+  </div>
 </div>
 
     <div class="collapse" id="collapse<%= i %>">
