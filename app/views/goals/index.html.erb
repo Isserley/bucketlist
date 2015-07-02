@@ -11,7 +11,7 @@
 <% @goals.each_with_index do |goal, i| %>
 
 <div class="container">
-  <div class="col-md-2 col-md-offset-5">
+  <div class="col-md-4 col-md-offset-4">
   <a href="<%= goal_path(goal.id) %>">
     <h1 class="header3"><%= goal.goal_title %></h1>
     <%= image_tag goal.goal_img.url(:medium) %>
@@ -43,6 +43,7 @@
   </div>
 </div>
 
+  <div class="entries-div">
     <div class="collapse" id="collapse<%= i %>">
       <% goal.entries.each do |entry| %>
         <%= entry.entry_title %>
@@ -50,6 +51,7 @@
         <a href="<%= edit_goal_entry_path(goal.id, entry.id) %>">edit</a>
         <% end %>
     </div>
+  </div>
 </div>
 
 <% end %>
