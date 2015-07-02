@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
+  login_user
 
  before(:each) do
     @goal = FactoryGirl.create(:goal)
@@ -37,33 +38,27 @@ RSpec.describe EntriesController, type: :controller do
   end
 
   describe "PUT #update" do
-    it "returns http success" do
-      put :update, goal_id: @goal.id, id: entry.id
-      expect(response).to have_http_status(:redirect)
-    end
+      it "updates an entry" do
+        put :update, goal_id: @goal.id, id: entry.id, entry: {entry_title: 'Updated'}
+        expect(response).to have_http_status(:redirect)
+        expect(entry.reload.entry_title).to eq('Updated')
+      end
   end
 
   describe "POST #create" do
-    it "returns http success" do
-      post :create, goal_id: @goal.id, id: entry.id
-      expect(response).to have_http_status(:redirect)
+      it "creates an entry" do
+        post :create, goal_id: @goal.id, entry: {entry_title: 'Happy'}
+        expect(response).to have_http_status(:redirect)
+        expect(Entry.last.entry_title).to eq('Happy')
+      end
     end
-  end
 
-  describe "DELETE #destroy" do
-    it "returns http success" do
-      delete :destroy, goal_id: @goal.id, id: entry.id
-      expect(response).to have_http_status(:redirect)
-    end
-  end
 
-  describe "PUT #update" do
-    it 'updates article successfully' do
-      new_title = 'Different Entry'
-      put :update, id: entry.id, entry: {title: new_title}
-      expect(article.reload.title).to eq(new_title)
-      expect(response).to have_http_status(:redirect)
-    end
-  end
+  # describe "DELETE #destroy" do
+  #   it "destroys an entry" do
+  #     delete :destroy, goal_id: @goal.id, id: entry.id
+  #     expect(response).to have_http_status(:redirect)
+  #   end
+  # end
 
 end

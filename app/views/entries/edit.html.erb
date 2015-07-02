@@ -1,5 +1,5 @@
 <div class="authform">
-  <%= form_for @entry, url: edit_goal_entry_path(@goal.id, @entry.id) do |f| %>
+  <%= form_for @entry, url: goal_entry_path(@goal.id, @entry.id) do |f| %>
   <div class="form-group">
     <%= f.label :entry_title %><br/>
     <%= f.text_field :entry_title, autofocus: true, class: "form-control" %>

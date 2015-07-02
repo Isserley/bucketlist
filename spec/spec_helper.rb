@@ -1,5 +1,8 @@
+require 'rails/all'
 require 'simplecov'
 require 'factory_girl_rails'
+require 'spec_helper'
+require 'rspec/rails'
 require 'devise'
 require 'support/controller_macros'
 
@@ -27,7 +30,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, :type => :controller
   # config.extend ControllerMacros, :type => :controller
-  # config.infer_spec_type_from_file_location! 
+  # config.infer_spec_type_from_file_location!
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -51,7 +54,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
- 
+
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

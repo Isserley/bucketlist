@@ -3,24 +3,24 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.where(user_id: current_user.id)
-    config = {
-      consumer_key:    ENV['twitter_key'],
-      consumer_secret: ENV['twitter_secret'],
-      access_token: ENV['twitter_api_key'],
-      access_token_secret: ENV['twitter_api_secret']
-    }
-    client = Twitter::REST::Client.new(config)
-    user = client.user("dplbucketlist")
-
-    client.update('yet another tweet')
-    # binding.pry
-
-    # return the user's timezone from their settings
-    user.time_zone
-
-    # return the user's name
-    user.name
-    # creates pagination for our goals
+    # config = {
+    #   consumer_key:    ENV['twitter_key'],
+    #   consumer_secret: ENV['twitter_secret'],
+    #   access_token: ENV['twitter_api_key'],
+    #   access_token_secret: ENV['twitter_api_secret']
+    # }
+    # client = Twitter::REST::Client.new(config)
+    # user = client.user("dplbucketlist")
+    #
+    # client.update('yet another tweet')
+    # # binding.pry
+    #
+    # # return the user's timezone from their settings
+    # user.time_zone
+    #
+    # # return the user's name
+    # user.name
+    # # creates pagination for our goals
 
   end
 
