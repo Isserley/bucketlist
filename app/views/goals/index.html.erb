@@ -7,23 +7,18 @@
 
 <h1 id="header2">My Bucket List</h1>
 
-<div class="container">
-<% @goals.each_with_index do |goal, i| %>
-
-<div class="container">
-  <div class="col-md-4 col-md-offset-4">
+    <% @goals.each_with_index do |goal, i| %>
+<div class="col-md-4">
   <a href="<%= goal_path(goal.id) %>">
     <h1 class="header3"><%= goal.goal_title %></h1>
     <%= image_tag goal.goal_img.url(:medium) %>
     <h3 class="header4"><%= goal.priority %></h3>
     <%= goal.completed %>
   </a>
-  </div>
-</div>
+
 <!-- edit and delete buttons -->
-<div class="container">
-  <div class="col-md-6 col-md-offset-4">
-<!-- new goal entry and edit goal entry -->
+
+<div class="text-center">
   <a href="<%= new_goal_entry_path(goal.id) %>">
     <button class="btn btn-warning" type="button" name="button">Add Entry</button>
   </a>
@@ -40,11 +35,14 @@
          <span class="glyphicon glyphicon-trash"></span>
       </button>
     </a>
-  </div>
+</div>
+
+
 </div>
 
   <div class="entries-div">
     <div class="collapse" id="collapse<%= i %>">
+<!-- new goal entry and edit goal entry -->
       <% goal.entries.each do |entry| %>
         <%= entry.entry_title %>
         <%= entry.entry_date %>
@@ -52,6 +50,5 @@
         <% end %>
     </div>
   </div>
-</div>
 
 <% end %>
