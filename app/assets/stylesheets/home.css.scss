@@ -29,7 +29,7 @@ hr {
 	text-align: center;
 }
 
-#header2 {
+.header2 {
 	font-family: 'Rock Salt', cursive;
 	margin-top: 40px;
 	margin-bottom: 40px;
@@ -78,7 +78,13 @@ hr {
 	font-size: 20px;
 	color: black;
 	display: inline-block;
-	padding: 30px;
+}
+
+.goal1 {
+	font-size: 20px;
+	color: black;
+	display: inline-block;
+  padding: 30px;
 }
 
 .twitter-share-button {
