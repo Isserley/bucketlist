@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only:[:edit, :show, :update, :destroy]
+  before_action :find_goal, only:[:edit, :show, :update, :destroy, :like]
 
   def index
     @goals = Goal.where(user_id: current_user.id)
@@ -21,7 +21,16 @@ class GoalsController < ApplicationController
     # return the user's name
     user.name
     # creates pagination for our goals
-    
+
+  end
+
+  def addtobucket
+    goal = Goal.find(params[:id])
+    my_goal = Goal.create!(goal.attributes.except('id', 'user_id', 'created_at', 'updated_at'))
+    my_goal.goal_img = goal.goal_img
+    current_user.goals << my_goal
+    flash[:success] = "#{goal.goal_title} was added to your goals!"
+    redirect_to(:back)
   end
 
   def new
@@ -32,7 +41,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.user_id = current_user.id
     if @goal.save
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :new
     end
@@ -43,7 +52,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to root_path
+      redirect_to goal_path(@goal.id)
     else
       render :edit
     end
@@ -53,9 +62,15 @@ class GoalsController < ApplicationController
     @entries = Entry.where(goal_id: @goal.id)
   end
 
+  def like
+    @goal.likes += 1
+    @goal.save
+    render(json: @goal)
+  end
+
   def destroy
     @goal.destroy
-    redirect_to root_path
+    redirect_to goals_path
   end
 
   private
@@ -63,6 +78,6 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by(id: params[:id])
   end
   def goal_params
-    params.require(:goal).permit(:goal_title, :goal_img, :completed, :priority)
+    params.require(:goal).permit(:goal_title, :goal_img, :completed, :priority, :likes)
   end
 end

@@ -15,3 +15,25 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function(){
+
+  $('#like').click(function(){
+    var id = $(this)[0].getAttribute('goal_id')
+    $.ajax('http://localhost:3000/goals/' + id + '/likes',{
+      type: 'GET',
+      success: function(data){
+        var likes = data.likes;
+        likes += 1;
+        $('#numLikes').html(likes);
+        console.log(likes);
+        console.log('success');
+      },
+      error: function(data){
+        console.log(data);
+        console.log('error');
+      }
+    });
+  });
+
+
+});
