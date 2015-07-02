@@ -48,7 +48,7 @@ gem 'devise'
 # cloudinary for using cloud image services
 gem 'cloudinary'
 # generates a bunch of data
-gem 'faker', '~> 1.4.3'
+# gem 'faker', '~> 1.4.3'
 
 group :test do
 	# tells test coverage percetage
@@ -59,6 +59,11 @@ group :test do
 
   gem 'factory_girl_rails'  # '~> 4.0' important to have gem version if possible
 
+end
+
+group :development do
+  gem 'faker'
+  gem 'populator'
 end
 
 
