@@ -9,23 +9,29 @@
 
 <div class="container">
 <% @goals.each_with_index do |goal, i| %>
-<!-- edit and delete buttons -->
-  <a href="<%= edit_goal_path(goal.id) %>">
-    <button class="btn btn-primary" type="button" name="button">
-      <span class="glyphicon glyphicon-pencil"></span>
-    </button>
-  </a>
-  <a href="<%= goal_path(goal.id) %>" data-method="delete">
-    <button class="btn btn-primary" type="button" name="button">
-       <span class="glyphicon glyphicon-trash"></span>
-    </button>
-  </a>
+
+<div class="container">
+  <div class="col-md-2 col-md-offset-5">
   <a href="<%= goal_path(goal.id) %>">
     <h1 class="header3"><%= goal.goal_title %></h1>
     <%= image_tag goal.goal_img.url(:medium) %>
     <h3 class="header4"><%= goal.priority %></h3>
     <%= goal.completed %>
   </a>
+  </div>
+</div>
+<!-- edit and delete buttons -->
+<div class="container">
+    <a href="<%= edit_goal_path(goal.id) %>">
+      <button class="btn btn-primary" type="button" name="button">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+    </a>
+    <a href="<%= goal_path(goal.id) %>" data-method="delete">
+      <button class="btn btn-primary" type="button" name="button">
+         <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </a>
 
   <a href="<%= new_goal_entry_path(goal.id) %>">
     <button class="btn btn-warning" type="button" name="button">Add Entry</button>
@@ -33,6 +39,8 @@
   <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
     <button class="btn btn-primary" type="button" name="button">Show Entries</button>
   </a>
+</div>
+
     <div class="collapse" id="collapse<%= i %>">
       <% goal.entries.each do |entry| %>
         <%= entry.entry_title %>
