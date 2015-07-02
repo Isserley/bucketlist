@@ -4,7 +4,7 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
-<h1 id="dean">My Bucket List</h1>
+<h1 id="header2">My Bucket List</h1>
 
 <a href="<%= new_goal_path %>">New Goal</a>
 <% @goals.each_with_index do |goal, i| %>
@@ -12,9 +12,9 @@
   <a href="<%= goal_path(goal.id) %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
       <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
         
-        <%= goal.goal_title %>
-        <%= goal.priority %>
+        <h1 class="header3"><%= goal.goal_title %></h1>
         <%= image_tag goal.goal_img.url(:medium) %>
+        <h3 class="header4"><%= goal.priority %></h3>
         <%= goal.completed %>
       </a>
       <div class="collapse" id="collapse<%= i %>">

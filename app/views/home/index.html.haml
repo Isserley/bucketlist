@@ -13,7 +13,7 @@
           Click #{link_to 'new goal', new_goal_path} to get started, or have some fun browsing other people's goals below...
         / <h1 id="dean">Goals</h1>
         %hr
-          %h1#dean Goals
+          %h1#header1 Goals
           - @goals.each do |goal|
             .goal
               %a{:href => goal_path(goal.id)}
@@ -21,3 +21,4 @@
               = goal.goal_title
           .container
             = will_paginate @goals, :page_links => false
+
