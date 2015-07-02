@@ -27,3 +27,34 @@
    background-color: #8F0000;
    border-color: #8F0000;
  }
+
+ .btn-primary:hover,
+ .btn-primary,
+ .btn-primary:focus,
+ .btn-primary:active,
+ .btn-primary.active:hover,
+ .btn-primary.active {
+   color: #FF1919;
+   background-color: black;
+   border-color: black;
+ }
+
+ .btn-warning:hover,
+ .btn-warning,
+ .btn-warning:focus,
+ .btn-warning:active,
+ .btn-warning.active:hover,
+ .btn-warning.active {
+   color: black;
+   background-color: gray;
+   border-color: gray;
+ }
+
+ a,
+ a:link,
+ a:visited,
+ a:hover,
+ a:active {
+   text-decoration: none;
+   color: black;
+ }

@@ -1,4 +1,5 @@
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+<a href="<%= new_goal_path %>"><button class="btn btn-default pull-right" type="button" name="button">New Goal</button></a>
 <!--twitter button -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="dplbucketlist">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -6,17 +7,28 @@
 
 <h1 id="header2">My Bucket List</h1>
 
-<a href="<%= new_goal_path %>">New Goal</a>
 <% @goals.each_with_index do |goal, i| %>
-  <a href="<%= edit_goal_path(goal.id) %>"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a href="<%= goal_path(goal.id) %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+<!-- edit and delete buttons -->
+  <a href="<%= edit_goal_path(goal.id) %>">
+    <button class="btn btn-primary" type="button" name="button">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+  </a>
+  <a href="<%= goal_path(goal.id) %>" data-method="delete">
+    <button class="btn btn-primary" type="button" name="button">
+       <span class="glyphicon glyphicon-trash"></span>
+    </button>
+  </a>
   <a href="<%= goal_path(goal.id) %>">
     <h1 class="header3"><%= goal.goal_title %></h1>
     <%= image_tag goal.goal_img.url(:medium) %>
     <h3 class="header4"><%= goal.priority %></h3>
     <%= goal.completed %>
   </a>
-  
+
+  <a href="<%= new_goal_entry_path(goal.id) %>">
+    <button class="btn btn-warning" type="button" name="button">Add Entry</button>
+  </a>
   <a class="goal" data-toggle="collapse" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapseExample">
     <button class="btn btn-primary" type="button" name="button">Show Entries</button>
   </a>
@@ -24,8 +36,8 @@
       <% goal.entries.each do |entry| %>
         <%= entry.entry_title %>
         <%= entry.entry_date %>
+        <a href="<%= edit_goal_entry_path(goal.id, entry.id) %>">edit</a>
         <% end %>
     </div>
-  <a href="<%= new_goal_entry_path(goal.id) %>">Add Entry</a>
 
 <% end %>
