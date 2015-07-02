@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :find_goal, only:[:edit, :show, :update, :destroy, :like]
+  before_action :find_goal, only:[:edit, :show, :update, :destroy, :like, :completed]
 
   def index
     @goals = Goal.where(user_id: current_user.id)
@@ -64,6 +64,15 @@ class GoalsController < ApplicationController
 
   def like
     @goal.likes += 1
+    @goal.save
+    render(json: @goal)
+  end
+
+  def completed
+    if @goal.completed
+      @goal.completed = false
+    else @goal.completed = true
+    end
     @goal.save
     render(json: @goal)
   end

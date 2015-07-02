@@ -25,12 +25,36 @@ $(document).ready(function(){
         var likes = data.likes;
         likes += 1;
         $('#numLikes').html(likes);
-        console.log(likes);
-        console.log('success');
+        // console.log(likes);
+        // console.log('success');
       },
       error: function(data){
-        console.log(data);
-        console.log('error');
+        // console.log(data);
+        // console.log('error');
+      }
+    });
+  });
+
+  $('#completed').click(function(){
+    // var autocomplete = $('input').attr('autocomplete')
+    var id = $(this)[0].getAttribute('goal_id')
+    $.ajax('http://localhost:3000/goals/' + id + '/completed',{
+      type: 'GET',
+      success: function(data){
+        var completed = data.completed;
+        if(completed){
+          $('input').attr('autocomplete', 'off')
+          console.log('OFF');
+          console.log($('input').attr('autocomplete'));
+        } else {
+          $('input').attr('autocomplete', 'on')
+          console.log('ON');
+          console.log($('input').attr('autocomplete'));
+        }
+        // console.log(autocomplete);
+      },
+      error: function(data){
+        // console.log('error');
       }
     });
   });

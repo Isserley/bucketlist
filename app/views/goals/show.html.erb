@@ -1,22 +1,31 @@
 <body>
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <a class="goal" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    <%= image_tag @goal.goal_img.url(:medium) %>
-    <%= @goal.goal_title %><br>
-    <%= @goal.priority %>
-    <%= @goal.completed %>
+  <%= image_tag @goal.goal_img.url(:medium) %>
+  <%= @goal.goal_title %><br>
+  <%= @goal.priority %>
 </a>
 <div class="collapse" id="collapseExample">
 <% @entries.each do |entry| %>
-    <%= entry.entry_title %>
-    <%= image_tag entry.entry_img.url(:medium) %>
-    <%= entry.entry_desc %>
-    <%= entry.entry_date %>
+  <%= entry.entry_title %>
+  <%= image_tag entry.entry_img.url(:medium) %>
+  <%= entry.entry_desc %>
+  <%= entry.entry_date %>
 <% end %>
 </div>
-
+<!-- completed button -->
+<% if @goal.completed %>
+  <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+    <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
+  </div>
+<% else %>
+  <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+    <label class="btn btn-info"><input type="checkbox" autocomplete="off">Completed</label>
+  </div>
+<% end %>
 <!-- twitter button -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="dplbucketlist">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

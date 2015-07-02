@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ .btn-info:hover,
+ .btn-info {
+   color: #CBCDCD;
+   background-color: white;
+   border-color: #CBCDCD;
+ }
+
+ .btn-info:focus,
+ .btn-info:active,
+ .btn-info.active:hover,
+ .btn-info.active {
+   background-color: #8F0000;
+   border-color: #8F0000;
+ }
