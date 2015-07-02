@@ -58,6 +58,7 @@ group :test do
 	gem 'shoulda-matchers'
 
   gem 'factory_girl_rails'  # '~> 4.0' important to have gem version if possible
+
 end
 
 
@@ -74,4 +75,6 @@ group :development, :test do
 
  #rspec gem for testing
 	gem 'rspec-rails', '~> 3.0'
+
+  gem "spork-rails"
 end
