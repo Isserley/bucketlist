@@ -133,6 +133,7 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.18.2)
+    populator (1.0.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -263,12 +264,13 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   factory_girl_rails
-  faker (~> 1.4.3)
+  faker
   haml (~> 4.0.6)
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.2)
   pg
+  populator
   pry
   rails (= 4.2.1)
   rails_layout
