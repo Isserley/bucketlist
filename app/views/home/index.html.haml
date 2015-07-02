@@ -19,6 +19,5 @@
               %a{:href => goal_path(goal.id)}
                 = image_tag goal.goal_img.url(:medium)
               = goal.goal_title
-          .container
+          .something
             = will_paginate @goals, :page_links => false
-

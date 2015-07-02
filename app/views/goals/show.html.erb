@@ -1,5 +1,3 @@
-<body>
-
 <h1 class="header2"><%= @goal.goal_title %></h1>
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
@@ -8,46 +6,69 @@
 <div class="text-center">
   <a class="goal" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     <%= image_tag(@goal.goal_img.url(:large), :class => "") %>
+  </a>
     <br>
-    Priority:  <%= @goal.priority %>
-    <% if @goal.completed %>
-      <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
-        <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
-      </div>
-    <% else %>
-      <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
-        <label class="btn btn-info"><input type="checkbox" autocomplete="off">Completed</label>
-      </div>
-    <% end %>
+    Likes:<p id="numLikes"></p>
+    <p>
+      Priority:  <%= @goal.priority %>
+    </p>
+    <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+      <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
+    </div>
+  <a href="<%= new_goal_entry_path(@goal.id) %>">
+    <button class="btn btn-warning" type="button" name="button">Add Entry</button>
   </a>
   <div class="collapse" id="collapseExample">
-  <% @entries.each do |entry| %>
-    <%= entry.entry_title %>
-    <%= image_tag entry.entry_img.url(:medium) %>
-    <%= entry.entry_desc %>
-    <%= entry.entry_date %>
+  <p class="header3">
+    Journal Entries
+  </p>
+  <% @entries.each_with_index do |entry, j| %>
+    <p class="header5">
+      <%= j + 1 %>. <%= entry.entry_title %>
+    </p>
+    <p>
+      <%= image_tag entry.entry_img.url(:medium) %>
+    </p>
+    <p>
+      <%= entry.entry_desc %>
+    </p>
+    <p>
+      <%= entry.entry_date %>
+    </p>
     <a href="<%= edit_goal_entry_path(@goal.id, entry.id) %>">Edit</a>
   <% end %>
   </div>
   <!-- completed button -->
 </div>
 <!-- twitter button -->
-<div class="container">
+<div class="">
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="dplbucketlist">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
 <% if @goal.user_id == current_user.id %>
-  <a href="<%= edit_goal_path(@goal.id) %>"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a href="<%= goal_path(@goal.id) %>" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+<a href="<%= edit_goal_path(@goal.id) %>">
+  <button class="btn btn-primary" type="button" name="button">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button>
+</a>
+<a href="<%= goal_path(@goal.id) %>" data-method="delete">
+  <button class="btn btn-primary" type="button" name="button">
+     <span class="glyphicon glyphicon-trash"></span>
+  </button>
+</a>
 <% else %>
-  Likes:<p id="numLikes">
 
-  </p><a goal_id="<%= @goal.id %>" id="like" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
+<a goal_id="<%= @goal.id %>" id="like" href="#">
+  <button class="btn btn-primary" type="button" name="button">
+    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+  </button>
+</a>
 <br>
-  <a href="/addtobucket/<%= @goal.id %>"><span class="glyphicon glyphicon-pushpin"></span> Add this goal to your own bucket list</a>
+  <a href="/addtobucket/<%= @goal.id %>">
+    <button class="btn btn-primary" type="button" name="button">
+      <span class="glyphicon glyphicon-pushpin"></span>   Add to my bucket!
+    </button>
+  </a>
 <% end %>
 </div>
-
-
-</body>
