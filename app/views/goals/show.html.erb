@@ -8,13 +8,21 @@
     <%= image_tag(@goal.goal_img.url(:large), :class => "") %>
   </a>
     <br>
-    Likes:<p id="numLikes"></p>
+    <p>
+      Likes:  <span id="numLikes"><%= @goal.likes %></span>
+    </p>
     <p>
       Priority:  <%= @goal.priority %>
     </p>
+    <% if @goal.completed %>
     <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
-      <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
+      <label class="btn btn-info active"><input type="checkbox" autocomplete="on">Completed</label>
     </div>
+    <% else %>
+    <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+      <label class="btn btn-info"><input type="checkbox" autocomplete="off">Completed</label>
+    </div>
+    <% end %>
   <a href="<%= new_goal_entry_path(@goal.id) %>">
     <button class="btn btn-warning" type="button" name="button">Add Entry</button>
   </a>
