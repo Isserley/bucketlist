@@ -2,10 +2,20 @@
 
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
 
+<a class="goal" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     <%= image_tag @goal.goal_img.url(:medium) %>
     <%= @goal.goal_title %><br>
     <%= @goal.priority %>
     <%= @goal.completed %>
+</a>
+<div class="collapse" id="collapseExample">
+<% @entries.each do |entry| %>
+    <%= entry.entry_title %>
+    <%= image_tag entry.entry_img.url(:medium) %>
+    <%= entry.entry_desc %>
+    <%= entry.entry_date %>
+<% end %>
+</div>
 
 <!-- twitter button -->
 
