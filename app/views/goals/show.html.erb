@@ -26,8 +26,9 @@
 <% else %>
   Likes:<p id="numLikes">
 
-  </p><a goal_id="<%= @goal.id %>" id="like" href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a>
-  <a href="/addtobucket/<%= @goal.id %>"><span class="glyphicon glyphicon-pushpin"></span></a>
+  </p><a goal_id="<%= @goal.id %>" id="like" href="#"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a>
+<br>
+  <a href="/addtobucket/<%= @goal.id %>"><span class="glyphicon glyphicon-pushpin"></span> Add this goal to your own bucket list</a>
 <% end %>
 
 </body>
