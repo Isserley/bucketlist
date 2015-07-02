@@ -1,31 +1,36 @@
 <body>
 
+<h1 class="header2"><%= @goal.goal_title %></h1>
+
 <link href='http://fonts.googleapis.com/css?family=Rock+Salt|Archivo+Narrow:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<a class="goal" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  <%= image_tag @goal.goal_img.url(:medium) %>
-  <%= @goal.goal_title %><br>
-  <%= @goal.priority %>
-</a>
-<div class="collapse" id="collapseExample">
-<% @entries.each do |entry| %>
-  <%= entry.entry_title %>
-  <%= image_tag entry.entry_img.url(:medium) %>
-  <%= entry.entry_desc %>
-  <%= entry.entry_date %>
-<% end %>
+<div class="text-center">
+  <a class="goal" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <%= image_tag(@goal.goal_img.url(:large), :class => "") %>
+    <br>
+    Priority:  <%= @goal.priority %>
+    <% if @goal.completed %>
+      <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+        <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
+      </div>
+    <% else %>
+      <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
+        <label class="btn btn-info"><input type="checkbox" autocomplete="off">Completed</label>
+      </div>
+    <% end %>
+  </a>
+  <div class="collapse" id="collapseExample">
+  <% @entries.each do |entry| %>
+    <%= entry.entry_title %>
+    <%= image_tag entry.entry_img.url(:medium) %>
+    <%= entry.entry_desc %>
+    <%= entry.entry_date %>
+    <a href="<%= edit_goal_entry_path(@goal.id, entry.id) %>">Edit</a>
+  <% end %>
+  </div>
+  <!-- completed button -->
 </div>
-<!-- completed button -->
-<% if @goal.completed %>
-  <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
-    <label class="btn btn-info"><input type="checkbox" autocomplete="on">Completed</label>
-  </div>
-<% else %>
-  <div id="completed" class="btn-group" data-toggle="buttons" goal_id="<%= @goal.id %>">
-    <label class="btn btn-info"><input type="checkbox" autocomplete="off">Completed</label>
-  </div>
-<% end %>
 <!-- twitter button -->
 <div class="container">
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="dplbucketlist">Tweet</a>

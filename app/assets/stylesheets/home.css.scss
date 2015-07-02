@@ -2,13 +2,13 @@ body {
 	background-color: silver;
 }
 
-hr { 
+hr {
   display: block;
   margin-top: 3em;
   margin-bottom: 0.5em;
   border-style: inset;
   border-width: 2px;
-} 
+}
 
 #death_wish {
 	color: silver;
@@ -33,6 +33,13 @@ hr {
 }
 
 #header2 {
+	font-family: 'Rock Salt', cursive;
+	margin-top: 40px;
+	margin-botton: 40px;
+	font-size: 60px;
+	text-align: center;
+}
+.header2 {
 	font-family: 'Rock Salt', cursive;
 	margin-top: 40px;
 	margin-botton: 40px;
