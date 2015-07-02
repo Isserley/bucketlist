@@ -7,6 +7,7 @@
 
 <h1 id="header2">My Bucket List</h1>
 
+<div class="container">
 <% @goals.each_with_index do |goal, i| %>
 <!-- edit and delete buttons -->
   <a href="<%= edit_goal_path(goal.id) %>">
@@ -39,5 +40,6 @@
         <a href="<%= edit_goal_entry_path(goal.id, entry.id) %>">edit</a>
         <% end %>
     </div>
+</div>
 
 <% end %>

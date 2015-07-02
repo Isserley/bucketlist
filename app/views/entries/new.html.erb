@@ -1,14 +1,28 @@
 <div class="authform">
   <%= form_for @entry, url: goal_entries_path(@goal) do |f| %>
-    <%= f.label(:entry_title) %>
-    <%= f.text_field(:entry_title) %>
-    <%= f.label(:entry_img) %>
+  <div class="form-group">
+    <%= f.label :entry_title %><br/>
+    <%= f.text_field :entry_title, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :entry_img %> <br/>
     <%= f.file_field :entry_img %>
-    <%= f.label(:entry_desc) %>
-    <%= f.text_area(:entry_desc) %>
-    <%= f.label(:entry_date) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :entry_desc %> <br/>
+    <%= f.text_area :entry_desc %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :entry_date %> <br/>
     <%= f.datetime_select :entry_date %>
-    <%= f.submit('Add Entry') %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Add Entry', :class => 'button left' %>
+  </div>
   <% end %>
 </div>
 <p><a href="<%= goal_path(@goal) %>" class="btn btn-primary" role="button">Back</a></p>
