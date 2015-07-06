@@ -38,9 +38,10 @@
 
     <div class="collapse" id="collapse<%= i %>">
       <% goal.entries.each do |entry| %>
-        <%= entry.entry_title %>
-        <%= entry.entry_date %>
+        <h4><%= entry.entry_title %></h4>
+        <p><%= entry.entry_date %></p>
         <a href="<%= edit_goal_entry_path(goal.id, entry.id) %>">edit</a>
+        <!-- <p><%= link_to('delete', goal_entry_path(goal.id, entry.id), method: :delete) %></p> -->
         <% end %>
     </div>
 </div>
